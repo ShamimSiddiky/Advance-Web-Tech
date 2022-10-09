@@ -14,7 +14,7 @@
                             {{csrf_field()}}
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="name" class="text-info">Username/Email:</label>
+                                <label for="name" class="text-info">Username:</label>
                                 <input type="text" name="name" id="name" class="form-control">
                                 @error('name')
                                 <span class="text-danger">{{$message}}</span>
@@ -26,6 +26,9 @@
                                 @error('password')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
+                            @if($errors->any())
+                            <div class="error text-xs">{{$errors->first()}}</div>
+                        @endif
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
